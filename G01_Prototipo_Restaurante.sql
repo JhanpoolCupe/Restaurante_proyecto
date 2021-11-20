@@ -1,5 +1,5 @@
 CREATE DATABASE Restaurante_Prototipo
-DEFAULT CHARACTER SET utf8;
+DEFAULT CHARACTER SET UTF8MB4;
 /* Usando la base de datos */
 
 USE Restaurante_Prototipo;
@@ -121,45 +121,24 @@ VALUES ('1', '1' , '02/07/21' , '15'),
 ('9', '9' , '05/07/21' , '80.00'),
 ('10', '10' , '09/07/21' , '190.00');
 
-CREATE table Restaurante(
-	Id_RUC INT AUTO_INCREMENT,
-	Nombre VARCHAR (40),
-    Descripcion VARCHAR (40),
-    Telefono char(9),
-    Correo VARCHAR(60),
-	PRIMARY KEY (Id_RUC)
-);
-INSERT INTO Restaurante (Id_RUC ,Nombre,Descripcion,Telefono,Correo)
-VALUES ('1', 'Campitos' , 'La comida que te gusta Aqui' , '978583756','campito@gmail.com'),
-('2', 'El Buen Gusto' , 'Ven con nosotros' , '974837487','Gusto@gmail.com'),
-('3', 'La Sazon' , 'No hay como nostros' , '939939321','sazon@gmail.com'),
-('4', 'El piloto' , 'Comida natural' , '963878723','piloto@gmail.com'),
-('5', 'Los Delfines' , 'El mara a tu boca' , '948384674','delfin@gmail.com'),
-('6', 'Sabor Peruano' , 'Comida de reices' , '958394643','peru@gmail.com'),
-('7', 'La Bolichera' , 'La frescura para ti' , '964835445','bolichera@gmail.com'),
-('8', 'Deigo' , 'Infuciones' , '975837483','deigo@gmail.com'),
-('9', 'El Rancho' , 'Lo natural a tu gusto' , '964827473','rancho@gmail.com'),
-('10', 'Anchobeta Azul' , 'todo lo bueno para ti' , '975828748','azul@gmail.com');
 
 CREATE table Menu(
 	Codigo_Menu INT AUTO_INCREMENT,
-    Id_RUC INT,
 	Nombre VARCHAR (40),
-	PRIMARY KEY (Codigo_Menu),
-    foreign key (Id_Ruc) references Restaurante(Id_Ruc)
+	PRIMARY KEY (Codigo_Menu)
 );
 
-INSERT INTO Menu (Codigo_Menu , Id_RUC , Nombre)
-VALUES ('1', '1' , 'Menu Marino' ),
- ('2', '2' , 'Menu mixto' ),
- ('3', '3' , 'Menu Criollo' ),
- ('4', '4' , 'Menu marino ' ),
- ('5', '5' , 'Menu criollo' ),
- ('6', '6' , 'Menu Mixto' ),
- ('7', '7' , 'Menu Criollo' ),
- ('8', '8' , 'Menu Mixto' ),
- ('9', '9' , 'Menu criollo' ),
- ('10', '10' , 'Menu Marino' );
+INSERT INTO Menu (Codigo_Menu , Nombre)
+VALUES ('1',  'Menu Marino' ),
+ ('2', 'Menu mixto' ),
+ ('3',  'Menu Criollo' ),
+ ('4',  'Menu marino ' ),
+ ('5',  'Menu criollo' ),
+ ('6',  'Menu Mixto' ),
+ ('7',  'Menu Criollo' ),
+ ('8',  'Menu Mixto' ),
+ ('9', 'Menu criollo' ),
+ ('10',  'Menu Marino' );
 
 CREATE table Producto(
 	Codigo_Producto INT AUTO_INCREMENT,
@@ -234,8 +213,7 @@ SELECT * FROM Cliente;
 SELECT * FROM Empleado;
 SELECT * FROM Pedido;
 SELECT * FROM Venta;
-SELECT * FROM Restaurante;
 SELECT * FROM Menu;
 SELECT * FROM Producto;
 SELECT * FROM Venta_Detalle;
-SELECT * FROM Menu_Producto;
+SELECT * FROM Menu_Producto;    
